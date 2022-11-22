@@ -15,11 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path, include
-from myapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('show/', views.show),
-    path('show_count/<int:count>', views.show_count),
-    re_path(r'show_year/(?P<year>[0-9]{4})/', views.show_year)
+    # App URLs configuration
+    path(r'myapp/', include('myapp.urls')),
 ]
